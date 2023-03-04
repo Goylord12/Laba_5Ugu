@@ -95,6 +95,11 @@ namespace ReaderNamespace
                 {
                     reader.PrintInfo();
                 }
+                
+                readers[0].TakeBook(3);
+                readers[1].TakeBook("Приключение", "Словарь", "Энциклопедия");
+                readers[0].ReturnBook(3);
+                readers[1].ReturnBook("Приключение", "Словарь", "Энциклопедия");
             }
         }
     
