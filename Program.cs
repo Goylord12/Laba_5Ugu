@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace MyNamespace
 {
@@ -20,7 +20,10 @@ namespace MyNamespace
             Console.WriteLine($"ФИО: {Name}, Группа: {Group}, Возраст: {Age}");
         }
     }
+}
 
+namespace ReaderNamespace
+{
     public class Reader
     {
         private string FullName;
@@ -63,34 +66,36 @@ namespace MyNamespace
             Console.WriteLine($"{FullName} вернул книги: {string.Join(", ", bookNames)}");
         }
     }
+}
 
-    class Program
-    {
-        static void Main(string[] args)
+        class Program
         {
-            Student[] students = new Student[3]
+            static void Main(string[] args)
             {
-                new Student("Охлобыстин Г.Д.", "Группа 1", 20),
-                new Student("Путята М. Д.", "Группа 2", 19),
-                new Student("Очканов Г. Н.", "Группа 3", 21)
-            };
+        MyNamespace.Student[] students = new MyNamespace.Student[3]
+                {
+                new MyNamespace.Student("Охлобыстин Г.Д.", "Группа 1", 20),
+                new MyNamespace.Student("Путята М. Д.", "Группа 2", 19),
+                new MyNamespace.Student("Очканов Г. Н.", "Группа 3", 21)
+                };
 
-            Reader[] readers = new Reader[3]
-            {
-                new Reader("Охлобыстин Г.Д.", "123456", "Факультет 1", new DateTime(2000, 1, 1), "+71234567890"),
-                new Reader("Путята М. Д.", "234567", "Факультет 2", new DateTime(2001, 2, 2), "+71234567891"),
-                new Reader("Очканов Г. Н.", "345678", "Факультет 3", new DateTime(1999, 3, 3), "+71234567892")
-            };
+        ReaderNamespace.Reader[] readers = new ReaderNamespace.Reader[3]
+                {
+                new ReaderNamespace.Reader("Охлобыстин Г.Д.", "123456", "Факультет 1", new DateTime(2000, 1, 1), "+71234567890"),
+                new ReaderNamespace.Reader("Путята М. Д.", "234567", "Факультет 2", new DateTime(2001, 2, 2), "+71234567891"),
+                new ReaderNamespace.Reader("Очканов Г. Н.", "345678", "Факультет 3", new DateTime(1999, 3, 3), "+71234567892")
+                };
 
-            foreach (var student in students)
-            {
-                student.PrintInfo();
-            }
+                foreach (var student in students)
+                {
+                    student.PrintInfo();
+                }
 
-            foreach (var reader in readers)
-            {
-                reader.PrintInfo();
+                foreach (var reader in readers)
+                {
+                    reader.PrintInfo();
+                }
             }
         }
-    }
-}
+    
+    
